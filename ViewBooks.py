@@ -9,7 +9,7 @@ mydatabase="mydb"
 con = pymysql.connect(host="localhost", user="root", password=mypass, database=mydatabase)
 cur = con.cursor()
 
-#enter table names here
+
 bookTable = "books"
 
 def View():
@@ -32,19 +32,18 @@ def View():
     LabelFrame = Frame(root, bg="black")
     LabelFrame.place(relx=0.1, rely=0.3, relwidth=0.8, relheight=0.5)
 
-    #add a text label to LabeFrame
     textLabel = Label(LabelFrame, text="%10s %40s %30s %20s"%('BID','Title','Author','Status'),
                     bg="black", fg="white")
     textLabel.place(relx=0.07, rely=0.1)
 
-    #addLine
+   
     addline = Label(LabelFrame, text = "----------------------------------------------------------------------------",bg="black", fg="white")
     addline.place(relx=0.05, rely=0.2)
-    #Label(LabelFrame, text = "----------------------------------------------------------------------------",bg='black',fg='white').place (relx=0.05,rely=0.2)
+ 
 
-    y = 0.25 #declare var to increase the height at y-axis to print details
+    y = 0.25 
 
-    #query to retrieve details from books table
+
     getBooks = "select * from "+ bookTable
     try:
         cur.execute(getBooks)
