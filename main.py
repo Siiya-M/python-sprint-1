@@ -7,26 +7,25 @@ from DeleteBook import *
 from IssueBook import *
 from ReturnBook import *
 
-#connect to mySQL server
 mypass = "root"
-mydatabase = "mydb"   #name of database
+mydatabase = "mydb"  
 
 con = pymysql.connect(host="localhost", user="root", password=mypass, database=mydatabase)
 
 cur = con.cursor()
 
-# designing the window
+
 root = Tk()
 root.title("Library")
 root.minsize(width=400, height=400)
 root.geometry("600x500")
 
-#Add the background Image
+
 same = True
 n = 0.28
 background_image = Image.open("lib.jpg")
 [imageSizeWidth, imageSizeHeight] = background_image.size
-#set the new image width and height
+
 newImageSizeWidth = int(imageSizeWidth * n)
 
 if same:
@@ -36,21 +35,20 @@ else:
 
 background_image = background_image.resize((newImageSizeWidth, newImageSizeHeight), Image.ANTIALIAS)
 
-#add an image to canva
+
 img = ImageTk.PhotoImage(background_image)
 canvas1 = Canvas(root)
 canvas1.create_image(300, 340, image=img)
 canvas1.config(bg="white", width=newImageSizeWidth, height=newImageSizeHeight)
 canvas1.pack(expand=True, fill=BOTH)
 
-#adding a heading Frame to library
 headingFrame1 = Frame(root, bg="#FFBB00", bd=5)
 headingFrame1.place(relx=0.2, rely=0.1, relwidth=0.6, relheight=0.16)
 headingLabel = Label(headingFrame1, text="Welcome to \n Crazy_Tech Librray", bg="black", 
                 fg="white", font=('Courier',15))
 headingLabel.place(relx=0, rely=0, relwidth=1, relheight=1)
 
-#Add the buttons
+
 btn1 = Button(root, text="Add Book Details", bg="black", fg="white", command=addBook)
 btn1.place(relx=0.28, rely=0.4, relwidth=0.45, relheight=0.1)
 
@@ -66,4 +64,4 @@ btn4.place(relx=0.28, rely=0.7, relwidth=0.45, relheight=0.1)
 btn5 = Button(root, text="Return Book", bg="black", fg="white", command=returnBook)
 btn5.place(relx=0.28, rely=0.8, relwidth=0.45, relheight=0.1)
 
-root.mainloop() #call the mainloop to run the application
+root.mainloop() 
