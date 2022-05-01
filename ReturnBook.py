@@ -9,7 +9,7 @@ mydatabase = "mydb"
 con = pymysql.connect(host="localhost", user="root", password=mypass, database=mydatabase)
 cur = con.cursor()
 
-#enter the table names
+
 issueTable = "books_issued"
 bookTable = "books"
 
@@ -45,7 +45,7 @@ def Return():
     except:
         messagebox.showinfo("Error", "Can't Fetch the book Id")
 
-    #remove that book from issueTable
+ 
     issueSql = "delete from "+issueTable+" where bid = '"+bid+"'"
 
     print(bid in allBid)
@@ -92,14 +92,14 @@ def returnBook():
     labelFrame = Frame(root, bg="black")
     labelFrame.place(relx=0.1, rely=0.3, relwidth=0.8, relheight=0.5)
 
-    #book id
+
     lb1 = Label(labelFrame, text="Book Id", bg="black", fg="white")
     lb1.place(relx=0.05, rely=0.5)
 
     bookInfo1 = Entry(labelFrame)
     bookInfo1.place(relx=0.3, rely=0.5, relwidth=0.62)
 
-    #submit Button
+   
     submitBtn = Button(root, text="Submit", bg="lightblue", fg="black", command=Return)
     submitBtn.place(relx=0.28, rely=0.9, relwidth=0.18, relheight=0.08)
 
