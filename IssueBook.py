@@ -9,17 +9,16 @@ mydatabase="mydb"
 con = pymysql.connect(host="localhost", user="root", password=mypass, database=mydatabase)
 cur = con.cursor()
 
-#declare the name of table
 issueTable = "books_issued"
 bookTable = "books"
 
-allBid = []  #to store all bokk ids which will issued.
+allBid = []  
 
 def issue():
     global issuebtn, labelFrame, inf1, inf2, lb1, quitBtn, root, Canvas1, status
 
-    bid = inf1.get()        #take the book id with get()
-    issueto = inf2.get()    #take the name to whom it is issued
+    bid = inf1.get()        
+    issueto = inf2.get()    
 
     issuebtn.destroy()
     labelFrame.destroy()
@@ -101,21 +100,20 @@ def issueBook():
     labelFrame = Frame(root, bg="black")
     labelFrame.place(relx=0.1, rely=0.3, relwidth=0.8, relheight=0.5)
 
-    #Book Id
+   
     lb1 = Label(labelFrame, text="Book Id", bg="black", fg="white")
     lb1.place(relx=0.05, rely=0.2)
 
     inf1 = Entry(labelFrame)
     inf1.place(relx=0.3, rely=0.2, relwidth=0.62)
 
-    #to whom book is issued, student name
+   
     lb2 = Label(labelFrame, text="Issue To", bg="black", fg="white")
     lb2.place(relx=0.05, rely=0.4)
 
     inf2 = Entry(labelFrame)
     inf2.place(relx=0.3, rely=0.4, relwidth=0.62)
 
-    #Issue Button
     issuebtn = Button(root, text="Issue", bg="#d1ccc0", fg="black", command=issue)
     issuebtn.place(relx=0.28, rely=0.9, relwidth=0.18, relheight=0.08)
 
