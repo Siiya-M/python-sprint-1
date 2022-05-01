@@ -9,7 +9,7 @@ mydatabase="mydb"
 con = pymysql.connect(host="localhost", user="root", password=mypass, database=mydatabase)
 cur = con.cursor()
 
-#declare the name of tables
+
 bookTable = "books"
 issue_Table = "books_issued"
 
@@ -49,22 +49,22 @@ def delete():
     headingFrame1 = Frame(root, bg="#FFBB00", bd=5)
     headingFrame1.place(relx=0.25, rely=0.1, relwidth=0.5, relheight=0.13)
 
-    #add a leabel to heading Frame
+
     headingLabel = Label(headingFrame1, text="Delete Book", bg="black", fg="white", font=('Courier',15))
     headingLabel.place(relx=0, rely=0, relwidth=1, relheight=1)
 
-    #add a label frame to canvas to give a lebl insite it to delete book
+    
     LabelFrame = Frame(root, bg="black")
     LabelFrame.place(relx=0.1, rely=0.3, relwidth=0.8, relheight=0.5)
 
-    #take a book ID to delete
+
     lb2 = Label(LabelFrame, text="Book Id: ", bg="black", fg="white")
     lb2.place(relx=0.05, rely=0.5)
 
     bookInfo1 = Entry(LabelFrame)
     bookInfo1.place(relx=0.3, rely=0.5, relwidth=0.62)
 
-    #submit button    
+   
     submitBtn = Button(root, text="Submit", bg="lightblue", fg="black", command=deleteBook)
     submitBtn.place(relx=0.28, rely=0.9, relwidth=0.18, relheight=0.08)
 
